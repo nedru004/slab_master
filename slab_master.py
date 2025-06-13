@@ -32,7 +32,7 @@ def generate_gcode():
         overlap = float(overlap_entry.get())
         feedrate = float(feedrate_entry.get())
         feedrate_non_motor = "6000"
-        segment_length = 100  # Length of each segment for chopping moves
+        segment_length = float(segment_entry.get())  # Length of each segment for chopping moves
 
         # Calculate number of passes and total time
         passes = round(width / overlap + 0.5)
@@ -118,8 +118,8 @@ feedrate_entry = tk.Entry(root, textvariable=tk.StringVar(root, "1000"))
 feedrate_entry.grid(row=3, column=1, padx=10, pady=5)
 
 tk.Label(root, text="Segmented Length (mm):").grid(row=4, column=0, padx=10, pady=5)
-segment_length = tk.Entry(root, textvariable=tk.StringVar(root, "10"))
-segment_length.grid(row=4, column=1, padx=10, pady=5)
+segment_entry = tk.Entry(root, textvariable=tk.StringVar(root, "10"))
+segment_entry.grid(row=4, column=1, padx=10, pady=5)
 
 #create a checkbox to select if user want both directions
 both_directions = tk.IntVar()
